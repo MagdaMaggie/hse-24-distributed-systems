@@ -1,45 +1,31 @@
-networks:
-  todonet:
-
+version: '3.8'
 services:
-
-### APPLICATION PART
-
-  postgresdb:
-    image: postgres
+  mongo:
+    image: mongo
     networks:
       - todonet
     ports:
-      - 5432:5432
-    environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_USER=matthias
-      - POSTGRES_DB=mydb
-
-  todobackend-springboot:
-    #image: maeddes/todobackend-springboot:v2402
+      - "27017:27017"
+  
+  nodebackend:
+    build: ./todo-backend
     networks:
       - todonet
-    build:
-      context: ./todobackend-springboot
-      dockerfile: Dockerfile
     ports:
-      - "8080:8080"
-    restart: unless-stopped
-    environment:
-      - SPRING_PROFILES_ACTIVE=prod
+      - "3000:3000"
     depends_on:
-      - postgresdb
+      - mongo
 
   todoui-thymeleaf:
-    #image: maeddes/todoui-thymeleaf:v2404
     build:
       context: ./todoui-thymeleaf
-      dockerfile: Dockerfile #-multistage
+      dockerfile: Dockerfile
     networks:
       - todonet
     ports:
       - "8090:8090"
     environment:
-      - BACKEND_URL=http://todobackend-springboot:8080/
+      - BACKEND_URL=http://nodebackend:3000/
 
+networks:
+  todonet:

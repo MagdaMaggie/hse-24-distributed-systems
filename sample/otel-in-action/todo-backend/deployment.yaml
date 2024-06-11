@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodebackend
+  labels:
+    app: nodebackend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodebackend
+  template:
+    metadata:
+      labels:
+        app: nodebackend
+    spec:
+      containers:
+        - name: nodebackend
+          image: <dein_registry>/nodebackend:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGO_URI
+              value: mongodb://mongo:27017/todo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodebackend
+spec:
+  selector:
+    app: nodebackend
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: ClusterIP
