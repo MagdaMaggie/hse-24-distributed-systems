@@ -140,7 +140,26 @@ The student is able to build and configure an own Spring Boot application from s
 ### Objectives and exercises
 _The student understands the concepts of an API and synchronous communication in distributed systems and can explain it in own words._
 
-# 2024-April-15th Distributed Application Sample / Outlook Lab / Docker Advanced topics - TODO :-)
+# 2024-April-15th Distributed Application Sample / Outlook Lab / Docker Advanced topics 
+
+Docker Advanced Topics:
+* Storage through Docker Volumes
+* Connectivity through Docker Networks
+* Multi Container Setup through Docker Compose
+
+![image](https://github.com/maeddes/hse-24-summer/assets/22505258/f1936aff-33a3-44e2-9278-f6bee801cda3)
+
+### Objectives and exercises
+_The student understands how storage and connectivity are handled per default in containers and knows the purpose and implementation of volumes, networks, and docker-compose files.
+Exercises can be found in the later chapters of the docker exercise website._
+
+### Review questions
+* How does data persistence behave by default in containers for files newly created in a running container?
+* What is the difference between Bind Mounts and Volumes?
+* When to use volumes for my containers?
+* How to share a file or directory with multiple containers?
+* Why do i need a network for containers? When do i not need it?
+* The results created by a docker-compose file could also be created manually: entering necessary cli commands one after another. What commands would be used?
 
 # 2024-April-22nd Cloud-native Software development - Theory part
 
@@ -169,3 +188,49 @@ _The student knows about the evolution of distributed systems (and middleware) a
 * "WHY" is external configuration important in cloud-native software?
 * Where did you see aspects of external configuration in the technologies we used? Provide examples
 * What is the advantage of polyglot applications? Why in particular for cloud-native software? What kind of disadvantages do you see?
+
+# 2024-April-29th On-Site Lab Session - No documentation here
+
+# 2024-May-6th Review Labs - Peristence / Spring Data - CAP Theorem
+
+# 2024-May-13th Resilience
+
+### Review questions
+
+* List 3 resilience patterns of your choice, describe briefly how they work and provide a real-world example
+(e.g. automatic restarts, the process of an app is observed and the app is restarted in case of downtime, e.g. docker-compose, Kubernetes)
+
+# 2024-May-20th No Lecture
+
+# 2024-May-27th - Kubernetes
+
+Kubernetes Topics:
+* The Kubernetes Cluster
+* The Contol Plane
+* Worker Nodes
+* Pods
+* Deployments
+* Services
+* Desired State Management
+
+![image](https://github.com/maeddes/hse-24-summer/assets/22505258/f2a22f5a-f66d-4d57-8506-d9ff8595e662)
+
+### Objectives and Exercises
+_The Student understands the core principle of Kubernetes, the key characteristics and the basic API objects to interact with k8s. The Student can explain the differences between these objects and their purpose. As exercises we have added a chapter to the [lecture exercises website](https://lecture.new.trainings.nvtc.io/k8s_basics/)._
+
+### Review Questions
+
+* What are the core ideas/principles of kubernetes?
+* What could be a valid scenario for a multi cluster setup?
+* How does Kubernets achieve and maintain the desired state?
+* Why do we use pods instead of using containers directly?
+* Why do we (preferably) use deployments instead of just pods?
+* What exactly happens when a node fails and how does the recovery procedure look like?
+
+# 2024-June-3rd - Docker-Compose vs Kubernetes
+
+### Review questions
+
+* Explain the limitations of Docker as opposed to Kubernetes on the aspect of scaling? How can it be achieved in both technologies?
+
+![Comparison](/pics/2024-06-03-compose-VS-k8s.png)

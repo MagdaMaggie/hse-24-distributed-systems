@@ -5,6 +5,8 @@ HELP.md
 !**/src/test/**/target/
 *.jar
 
+node_modules
+
 __pycache__
 
 ### STS ###
